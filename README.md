@@ -1,2 +1,2 @@
 # Vacations-Site
-vacations site
+vacations site with authentication and user/admin system
