@@ -1,0 +1,47 @@
+# ------------------- build-stage ------------------- #
+
+# alpine OS  + node.js
+FROM node:18-alpine3.16 AS build-stage
+
+# Global instlations needed to run our app:
+RUN npm i -g typescript
+
+# Create folder for our app:
+WORKDIR /tmp
+
+# Copy only package.json into /tmp directory
+COPY package*.json /tmp
+
+# Run command npm i to restore node_modules:
+RUN npm i
+
+# Copy files form our machine to the image:
+COPY . /tmp
+
+# Execute command:
+RUN tsc
+
+# /tmp/build
+
+
+# ------------------- prod-stage ------------------- #
+
+# alpine OS  + node.js
+FROM node:18-alpine3.16 AS prod-stage
+
+# Create folder for our app:
+WORKDIR /app
+
+# Copy only package.json into /tmp directory
+COPY --from=build-stage /tmp/package*.json /app
+
+# Copy the js files
+COPY --from=build-stage /tmp/build /app
+
+# Run command npm i to restore node_modules:
+RUN npm i --only=prod
+
+# # Execute command on run the container
+ENTRYPOINT node /app/app.js
+
+

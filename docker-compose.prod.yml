@@ -1,0 +1,103 @@
+
+services:
+
+
+  vacations-database-service:
+
+    image: vacations-database-image
+
+    build: ./Database
+
+    container_name: vacations-database-container
+
+    ports:
+      - 3306:3306
+
+    environment:
+      MYSQL_HOST: localhost
+      MYSQL_DATABASE: vacations
+      MYSQL_USER: kipi
+      MYSQL_PASSWORD: kipod1234
+      MYSQL_RANDOM_ROOT_PASSWORD : 1
+
+    restart: unless-stopped
+
+    volumes:
+      - vacations-volume:/var/lib/mysql
+
+
+
+  vacations-backend-service:
+
+    image: vacations-backend-image
+
+    build: 
+      context: ./Backend
+      dockerfile: Dockerfile.prod
+
+    container_name: vacations-backend-container
+
+    ports:
+      - 3001:3001
+
+    environment:
+      PORT: 3001
+      MYSQL_HOST: vacations-database-service 
+      MYSQL_DATABASE: vacations
+      MYSQL_USER: yoss
+      MYSQL_PASSWORD: yoss1565
+
+    restart: unless-stopped
+
+    depends_on:
+      - vacations-database-service
+
+
+
+  vacations-frontend-service:
+
+    image: vacations-frontend-image
+
+    build: 
+      context: ./front_end
+      dockerfile: Dockerfile.prod
+
+    container_name: vacations-frontend-container
+
+    ports:
+      - 8080:80
+
+    restart: unless-stopped
+
+    depends_on:
+      - vacations-database-service
+      - vacations-backend-service
+
+
+  vacations-pma-service:
+
+    image: phpmyadmin/phpmyadmin
+    
+    container_name: vacations-pma-container
+
+    ports:
+      - 8081:80
+
+    environment:
+      PMA_HOST: vacations-database-service
+
+    links:
+      - vacations-database-service
+
+    restart: unless-stopped
+
+    depends_on:
+      - vacations-database-service
+
+
+
+volumes:
+  vacations-volume:
+
+
+# docker-compose -f docker-compose.prod.yml up -d 
