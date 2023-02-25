@@ -932,3 +932,45 @@
 --------------------------------------------------
 2/18/2023, 2:03:40 PM	[object Object]
 --------------------------------------------------
+19.2.2023, 22:05:59	[object Object]
+--------------------------------------------------
+19.2.2023, 22:06:33	[object Object]
+--------------------------------------------------
+20.2.2023, 12:27:01	[object Object]
+--------------------------------------------------
+20.2.2023, 12:27:01	[object Object]
+--------------------------------------------------
+25.2.2023, 12:57:52	[object Object]
+--------------------------------------------------
+25.2.2023, 12:57:52	[object Object]
+--------------------------------------------------
+25.2.2023, 12:58:32	[object Object]
+--------------------------------------------------
+25.2.2023, 12:58:35	[object Object]
+--------------------------------------------------
+25.2.2023, 12:58:42	[object Object]
+--------------------------------------------------
+25.2.2023, 12:58:50	[object Object]
+--------------------------------------------------
+25.2.2023, 18:22:30	Error: Cannot find module '../encodings'
+Require stack:
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\iconv-lite\lib\index.js
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\raw-body\index.js
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\body-parser\lib\read.js
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\body-parser\lib\types\json.js
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\body-parser\index.js
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\express\lib\express.js
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\express\index.js
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\src\app.ts
+--------------------------------------------------
+25.2.2023, 18:22:32	Error: Cannot find module '../encodings'
+Require stack:
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\iconv-lite\lib\index.js
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\raw-body\index.js
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\body-parser\lib\read.js
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\body-parser\lib\types\json.js
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\body-parser\index.js
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\express\lib\express.js
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\express\index.js
+- C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\src\app.ts
+--------------------------------------------------

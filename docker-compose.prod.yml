@@ -6,7 +6,7 @@ services:
 
     image: vacations-database-image
 
-    build: ./Database
+    build: /Database
 
     container_name: vacations-database-container
 
@@ -14,10 +14,10 @@ services:
       - 3306:3306
 
     environment:
-      MYSQL_HOST: localhost
+      MYSQL_HOST: 167.71.240.80
       MYSQL_DATABASE: vacations
-      MYSQL_USER: kipi
-      MYSQL_PASSWORD: kipod1234
+      MYSQL_USER: yoss
+      MYSQL_PASSWORD: yoss1234
       MYSQL_RANDOM_ROOT_PASSWORD : 1
 
     restart: unless-stopped
@@ -42,10 +42,12 @@ services:
 
     environment:
       PORT: 3001
-      MYSQL_HOST: vacations-database-service 
+      MYSQL_HOST: 167.71.240.80 
       MYSQL_DATABASE: vacations
       MYSQL_USER: yoss
-      MYSQL_PASSWORD: yoss1565
+      MYSQL_PASSWORD: yoss1234
+      MYSQL_RANDOM_ROOT_PASSWORD : 1
+
 
     restart: unless-stopped
 
@@ -59,13 +61,13 @@ services:
     image: vacations-frontend-image
 
     build: 
-      context: ./front_end
+      context: ./Frontend
       dockerfile: Dockerfile.prod
 
     container_name: vacations-frontend-container
 
     ports:
-      - 8080:80
+      - 80:80
 
     restart: unless-stopped
 
@@ -81,7 +83,7 @@ services:
     container_name: vacations-pma-container
 
     ports:
-      - 8081:80
+      - 8080:80
 
     environment:
       PMA_HOST: vacations-database-service

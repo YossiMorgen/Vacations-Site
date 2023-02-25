@@ -16,7 +16,7 @@ services:
       MYSQL_HOST: localhost
       MYSQL_DATABASE: vacations
       MYSQL_USER: yoss
-      MYSQL_PASSWORD: yoss1565
+      MYSQL_PASSWORD: yoss1234
       MYSQL_RANDOM_ROOT_PASSWORD : 1
 
     restart: unless-stopped

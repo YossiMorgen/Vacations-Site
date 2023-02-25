@@ -19,7 +19,7 @@ async function getAllVacations(id: number, start: number, end: number): Promise<
         ORDER BY start 
         LIMIT ?
         OFFSET ?
-    `, ['http://' + appConfig.host+ ":" + appConfig.port +"/", end, start]);
+    `, [appConfig.nodeUrl, end, start]);
     console.log("vacations" + vacations);
     
     return vacations;
@@ -55,7 +55,7 @@ async function UpdateVacation(vacation: VacationModel): Promise<VacationModel> {
     
     if(vacation.image){
         fileHandler.deleteFile(oldPhoto);
-        vacation.imageName = 'http://' + appConfig.host+ ":" + appConfig.port +"/" + await fileHandler.saveFile(vacation.image);
+        vacation.imageName = await fileHandler.saveFile(vacation.image);
         delete vacation.image;
         sql += " , imageName =?";
         arr.push(vacation.imageName);
@@ -66,7 +66,7 @@ async function UpdateVacation(vacation: VacationModel): Promise<VacationModel> {
 
     const info: OkPacket = await dal.execute(sql, [...arr]);     
     if(info.affectedRows === 0) throw new ResourceNotFoundErrorModel(vacation.vacationId);
-
+    vacation.imageName = appConfig.nodeUrl + vacation.imageName
     return vacation;
 }
 
@@ -110,7 +110,7 @@ export default {
     
 //     const info: OkPacket = await dal.execute(sql, [...arr]);        
 
-//     newVacation.imageName = 'http://' + appConfig.host+ ":" + appConfig.port +"/" + newVacation.imageName;
+//     newVacation.imageName = appConfig.nodeUrl + newVacation.imageName;
 
 //     console.log(newVacation);
     
