@@ -6,6 +6,6 @@ docker-compose.prod.yml
 
 /Backend/node_modules
 /Backend/build-stage
-/Frontend/node_modules
-# /Frontend/build
+/front_end/node_modules
+/front_end/build
 

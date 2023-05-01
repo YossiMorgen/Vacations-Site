@@ -1,0 +1,33 @@
+FROM node:18-alpine3.16 AS build-stage
+
+WORKDIR /tmp
+
+COPY package*.json /tmp
+
+RUN npm i
+
+COPY . /tmp
+
+ENV REACT_APP_SERVER_URL='http://167.71.240.80/3001/api/'
+
+RUN npm run build
+
+
+FROM nginx
+RUN rm /etc/nginx/conf.d/default.conf
+
+# RUN sudo wget -O /etc/apk/keys/nginx_signing.rsa.pub https://cs.nginx.com/static/keys/nginx_signing.rsa.pub
+# RUN printf "https://pkgs.nginx.com/plus/alpine/v`egrep -o '^[0-9]+\.[0-9]+' /etc/alpine-release`/main\n" | sudo tee -a /etc/apk/repositories
+# RUN printf "https://pkgs.nginx.com/app-protect/alpine/v`egrep -o '^[0-9]+\.[0-9]+' /etc/alpine-release`/main\n" | sudo tee -a /etc/apk/repositories
+# RUN printf "https://pkgs.nginx.com/modsecurity/alpine/v`egrep -o '^[0-9]+\.[0-9]+' /etc/alpine-release`/main\n" | sudo tee -a /etc/apk/repositories
+# RUN sudo apk del -r nginx
+# RUN sudo apk add nginx-plus
+# RUN sudo apk add app-protect app-protect-attack-signatures
+# RUN sudo apk add nginx-plus nginx-plus-module-modsecurity
+
+COPY --from=build-stage /tmp/build /usr/share/nginx/html
+COPY .conf /etc/nginx/
+
+ENTRYPOINT nginx -g "daemon off;"
+
+

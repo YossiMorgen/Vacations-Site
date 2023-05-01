@@ -1,0 +1,77 @@
+.VacationList{
+    width: 100vw;
+}
+
+/* ----------------------select--------------------- */
+.selectMode{
+    position: relative;
+    margin-right: 20px;
+}
+
+.selectMode select {
+    font-family: inherit;
+    position: absolute;
+    top: 5px;
+    right: 0;
+    appearance: none;
+    font-size: small;
+    height: 25px;   
+    max-width: 15vw;
+    border-radius: 25px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    box-shadow: rgba(192, 161, 104, 0.671) 0 0 20px;
+    z-index: 5; 
+}
+
+.selectMode select::-ms-expand {
+    display: none;
+}
+
+
+
+/* .selectMode select::after {
+    content: "";
+    width: 0.8em;
+    height: 0.5em;
+    background-color: aqua;
+    clip-path: polygon(100% 0%, 0 0%, 50% 100%);
+  } */
+
+ /* ---------------------- Rainbow ------------------ */
+.Rainbow{
+    text-transform: uppercase;
+    width: 50px;
+    letter-spacing: 2px;
+    background-image: linear-gradient(to left, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+/* ----------------------button-------------------- */
+.buttonContainer{
+    padding: 3vh;
+    display: flex;
+}
+
+.buttonContainer > button {
+    height: 25px;
+    width: 30vw;
+    border: none;
+    background-color: #7878bd;
+    clip-path: polygon(50% 100%, 100% 35%, 65% 48%, 75% 0, 50% 15%, 25% 0%, 35% 48%, 0 35%);
+    cursor: pointer;
+    margin: auto;
+    opacity: 70%;
+}
+.buttonContainer > button:hover{
+    opacity: 85%;
+}
+.buttonContainer > button:active{
+    opacity: 100%;
+}
+.buttonContainer > button:disabled{
+    cursor: default;
+    opacity: 20%;
+}

@@ -1,0 +1,8 @@
+.PageNotFound{
+    display: flex;
+    height: 90vh;
+}
+
+.PageNotFound > iframe{
+    margin: auto;
+}

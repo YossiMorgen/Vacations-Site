@@ -1,0 +1,148 @@
+
+:root{
+  --input-color: #d489e7;
+}
+
+.Login, .Register {
+	display: flex;
+  height: 100%;
+}
+
+label > span{
+    display: block;
+}
+
+.card {
+  margin: auto;
+  margin-top: 4vh;
+  width: fit-content;
+  padding: 25px;
+  height: fit-content;
+  background: #F4F6FB;
+  border: 1px solid white;
+  box-shadow: 10px 10px 64px 0px rgba(180, 180, 207, 0.75);
+  -webkit-box-shadow: 10px 10px 64px 0px rgba(186, 186, 202, 0.75);
+  -moz-box-shadow: 10px 10px 64px 0px rgba(208, 208, 231, 0.75);
+  text-align: center;
+}
+
+.card, .card *{
+    border-radius: 10px;
+}
+
+.card_header {
+  display: flex;
+  align-items: center;
+}
+
+.form_headline {
+  font-size: 21px;
+  color: #7878bd;
+  cursor: default;
+}
+
+.field {
+  position: relative;
+  color: #B2BAC8;
+  font-size: 14px;
+  display: block;
+  padding-bottom: 3vh
+}
+
+.input {
+  background-color: #e6e6f0;
+  color: var(--input-color);
+  /* width: 100%; */
+  max-width: 180px;
+  /* height: 45px; */
+  padding: 12px;
+  border-radius: 12px;
+  border: 1.5px solid lightgrey;
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+  box-shadow: 0px 0px 20px -18px;
+}
+
+.input:hover {
+  border: 2px solid lightgrey;
+  box-shadow: 0px 0px 20px -17px;
+}
+
+.input:active {
+  transform: scale(0.95);
+}
+
+.input:focus {
+  border: 2px solid grey;
+}
+
+.input[type = file]{
+  text-align: center;
+  padding: 1.5vh 0;
+  content: "";
+  color: transparent;
+  cursor: url(./Assets/Images/add-photo.png);
+}
+
+.input[type = file]::-webkit-file-upload-button{
+  visibility: hidden;
+}
+
+.input[type = file]::before{
+  content: ' Select Image  ';
+  white-space: nowrap;
+  color: var(--input-color);
+  padding-left: 20%;
+
+}
+
+form button {
+    position: relative;
+    width: 150px;
+    border: solid 0.3px rgba(245, 222, 179, 0.164);
+    background: #7878bd;
+    color: #fff;
+    padding: 1em;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: 0.2s;
+    border-radius: 5px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+    box-shadow: #7878bd 3px 5px 2px, #000 3.5px 5.5px 5px;
+    margin: auto;
+    display: block;
+}
+
+form button:hover {
+    opacity: 1;
+}
+
+form button:active {
+  top: 4px;
+  box-shadow: #7878bd 3.5px 5.5px 2px,#000 0px 3px 5px;
+}
+
+form button:disabled{
+    opacity: 50%;
+}
+
+.formImage{
+  width: 5vw;
+  border-radius: 50%
+}
+
+.err{
+    color: red;
+    font-weight: bold;
+    font-size: smaller;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+
+form > small {
+  font-weight: 100;
+  margin-top: 5vh;
+  padding-top: 15vh;
+}
