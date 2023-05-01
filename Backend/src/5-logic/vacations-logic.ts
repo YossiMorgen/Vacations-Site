@@ -45,18 +45,20 @@ async function addVacation(vacation:VacationModel): Promise<VacationModel> {
 async function UpdateVacation(vacation: VacationModel): Promise<VacationModel> {        
     
     const err = vacation.validation();
-    if(err) throw new ValidationErrorModel(err); 
+    if(err) throw new ValidationErrorModel(err);
 
     let sql = "UPDATE vacation SET description =?, destination=?, start =?, end =?, price =?";
     const arr: Array<any> = [vacation.description, vacation.destination, vacation.start, vacation.end, vacation.price]
 
-    const oldPic = await dal.execute("SELECT imageName FROM vacation WHERE vacationId =?", [vacation.vacationId]);       
-    const oldPhoto = oldPic[0]["imageName"];
-    
     if(vacation.image){
+       
+        const oldPic = await dal.execute("SELECT imageName FROM vacation WHERE vacationId =?", [vacation.vacationId]);       
+        const oldPhoto = oldPic[0]["imageName"];
+
         fileHandler.deleteFile(oldPhoto);
         vacation.imageName = await fileHandler.saveFile(vacation.image);
         delete vacation.image;
+        
         sql += " , imageName =?";
         arr.push(vacation.imageName);
     }

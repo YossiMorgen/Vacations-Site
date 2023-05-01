@@ -659,3 +659,17 @@ Wed, 22 Feb 2023 13:33:52 GMT 	 error!!Stack: Error: connect ECONNREFUSED 127.0.
     at Object.<anonymous> (C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\src\5-logic\vacations-logic.ts:12:33)
     at step (C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\src\5-logic\vacations-logic.ts:33:23)
 ----------------------------------------------------------------------------------------------------
+Mon, 27 Feb 2023 15:27:54 GMT 	 error!!Stack: Error: connect ECONNREFUSED 127.0.0.1:3306
+    at TCPConnectWrap.afterConnect [as oncomplete] (node:net:1247:16)
+    --------------------
+    at Protocol._enqueue (C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\mysql\lib\protocol\Protocol.js:144:48)
+    at Protocol.handshake (C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\mysql\lib\protocol\Protocol.js:51:23)
+    at PoolConnection.connect (C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\mysql\lib\Connection.js:116:18)
+    at Pool.getConnection (C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\mysql\lib\Pool.js:48:16)
+    at Pool.query (C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\node_modules\mysql\lib\Pool.js:202:8)
+    at C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\src\2-utils\dal.ts:13:20
+    at new Promise (<anonymous>)
+    at Object.execute (C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\src\2-utils\dal.ts:12:12)
+    at Object.<anonymous> (C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\src\5-logic\auth-logic.ts:45:29)
+    at step (C:\Users\ASUS\Desktop\fullStack\treeps_project\Backend\src\5-logic\auth-logic.ts:33:23)
+----------------------------------------------------------------------------------------------------
